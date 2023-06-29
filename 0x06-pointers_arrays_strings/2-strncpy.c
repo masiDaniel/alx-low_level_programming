@@ -17,7 +17,7 @@ src_len++;
 for (index = 0; src[index] && index < n; index++)
 dest[index] = src[index];
 for (index = src_len; index < n; index++)
-dest[index] ='\0;;
+dest[index] ='\0';
 
 return (dest);
 }
