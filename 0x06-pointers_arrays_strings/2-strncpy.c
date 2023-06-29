@@ -3,7 +3,7 @@
 /**
  * _strncpy - copies at most an inputted number
  * @dest: the buffer storing the string copy
- * @rc: the source string
+ * @src: the source string
  * @n: the max number of bytes to be copied from src
  * Return: a pointer to the resulting dest
  */
@@ -17,7 +17,7 @@ src_len++;
 for (index = 0; src[index] && index < n; index++)
 dest[index] = src[index];
 for (index = src_len; index < n; index++)
-dest[index] ='\0';
+dest[index] = '\0';
 
 return (dest);
 }
