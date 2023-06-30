@@ -1,6 +1,7 @@
 #include <stdio.h>
 /**
- *@s - the string to be test
+ * _strlen - returns the length of a string
+ *@str: the string to be test
  *Return: length  SUCCESS
  */
 size_t  _strlen(const char *str)
