@@ -17,10 +17,10 @@ a = b = c = d = 0;
 if (av == NULL || ac == 0)
 return (NULL);
 
-for (; a < ac; a++)
+for (a = 0; a < ac; a++)
 {
-for (; av[a][b]; b++)
-b++;
+for (b = 0; av[a][b]; b++)
+d++;
 
 }
 d += ac;
@@ -29,9 +29,9 @@ str = malloc(sizeof(char) * d + 1);
 if (str == NULL)
 return (NULL);
 
-for (; a < ac; a++)
+for (a = 0; a < ac; a++)
 {
-for (; av[a][b]; b++)
+for (b = 0; av[a][b]; b++)
 {
 str[c] = av[c][b];
 c++;
