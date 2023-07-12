@@ -28,7 +28,7 @@ if (swap == NULL)
 {
 return (NULL);
 }
-for(; str[b]; b++)
+for (; str[b]; b++)
 {
 swap[b] = str[b];
 }
