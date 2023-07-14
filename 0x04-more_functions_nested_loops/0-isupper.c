@@ -9,6 +9,7 @@
 
 int _isupper(int x)
 {
+// we can also use the normal alphabet, it works just the same
     if (x >= 65 && x <= 90)
     {
      return (1);
