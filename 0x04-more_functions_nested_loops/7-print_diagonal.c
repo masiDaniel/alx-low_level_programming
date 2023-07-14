@@ -13,9 +13,10 @@ _putchar('\n');
 else
 {
 int i, j;
-
+// this for loops handles the rows 
 for (i = 0; i < n; i++)
 {
+  //this for loop handles the columns 
 for (j = 0; j < n; j++)
 {
 if (j == i)
