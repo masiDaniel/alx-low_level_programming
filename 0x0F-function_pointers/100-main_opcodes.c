@@ -28,8 +28,8 @@ exit(2);
 }
 
 array = (char *)main;
-x = 0;
-for (; x < b; x++)
+
+for (x = 0; x < b; x++)
 {
 if (x == b - 1)
 {
