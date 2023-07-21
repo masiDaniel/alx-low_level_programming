@@ -17,9 +17,9 @@ sum = x = 0;
 
 va_start(ap, n);
 
-for (; x = n; x++)
+for (x = 0; x < n; x++)
 {
-	sum += va_arg(ap, int);
+ sum += va_arg(ap, int);
 }
 
 va_end(ap);
