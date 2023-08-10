@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void close_file_content(int file);
+void close_file_content(int file_d);
 
 /**
  * create_buffer - function to allocate memory to a buffer
@@ -70,18 +70,18 @@ if (argc != 3)
 buffer = create_buffer(argv[2]);
 from = open(argv[1], O_RDONLY);
 re = read(from, buffer, 1024);
-to = open(argv[2], O_CREAT | O_RDONLY | O_TRUNC, 0664);
+to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 do {
 	if (from == -1 || re == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: can't reade from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
 		free(buffer);
 		exit(98);
 	}
 
 	word = write(to, buffer, re);
-	if (word == -1 || to == -1)
+	if (to == -1 || word == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't write to %s \n", argv[2]);
 		free(buffer);
