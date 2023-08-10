@@ -9,7 +9,7 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int file, write;
+	int file, word;
 	int length = 0;
 
 	if (filename == NULL)
@@ -17,14 +17,14 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		for (len = 0; text_content[len];)
+		for (length = 0; text_content[length];)
 			length++;
 	}
 
 	file = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-	write = write(file, text_content, length);
+	word = write(file, text_content, length);
 
-	if (write == -1 || file == -1)
+	if (word == -1 || file == -1)
 		return (-1);
 
 	close(file);

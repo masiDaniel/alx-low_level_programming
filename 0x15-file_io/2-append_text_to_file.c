@@ -10,25 +10,25 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int length = 0;
-	int write;
-	int open;
+	int word;
+	int op;
 
 	if (filename == NULL)
 		return (-1);
 
 	if (text_content != NULL)
 	{
-		for (len = 0; text_content[length];)
+		for (length = 0; text_content[length];)
 			length++;
 	}
 
-	open = open(filename, O_WRONLY | O_APPEND);
-	write = write(open, text_content, length);
+	op = open(filename, O_WRONLY | O_APPEND);
+	word = write(op, text_content, length);
 
-	if (write == -1 || open == -1)
+	if (word == -1 || op == -1)
 		return (-1);
 
-	close(open);
+	close(op);
 
 	return (-1);
 }

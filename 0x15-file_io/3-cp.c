@@ -15,7 +15,7 @@ char *create_buffer(char *file)
 {
 	char *buffer;
 
-	buffer = malloc(sizeof(cahr) * 1024);
+	buffer = malloc(sizeof(char) * 1024);
 
 	if (buffer == NULL)
 	{
@@ -58,7 +58,7 @@ void close_file_content(int fd)
 
 int main(int argc, char *argv[])
 {
-int from, write, read, to;
+int from, word, re, to;
 char *buffer;
 
 if (argc != 3)
@@ -69,29 +69,29 @@ if (argc != 3)
 
 buffer = create_buffer(argv[2]);
 from = open(argv[1], O_RDONLY);
-read = read(from, buffer, 1024);
-to = open(argv[2], O_CREAT | o_WRONLY | O_TRUNC, 0664);
+re = read(from, buffer, 1024);
+to = open(argv[2], O_CREAT | O_RDONLY | O_TRUNC, 0664);
 
 do {
-	if (from == -1 || read == -1)
+	if (from == -1 || re == -1)
 	{
-		dprintf(STDERR_FILRNO, "Error: can't reade from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: can't reade from file %s\n", argv[1]);
 		free(buffer);
 		exit(98);
 	}
 
-	write = write(to, buffer, rea);
-	if (write == -1 || to == -1)
+	word = write(to, buffer, re);
+	if (word == -1 || to == -1)
 	{
-		dprintF(STDERR_FILENO, "Error: can't write to %s \n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: can't write to %s \n", argv[2]);
 		free(buffer);
 		exit(99);
 	}
 
-	read = read(from, buffer, 1025);
-	to = open(argv[2], O_WONLY | O_APPEND);
+	re = read(from, buffer, 1025);
+	to = open(argv[2], O_WRONLY | O_APPEND);
 
-} while (read > 0);
+} while (re > 0);
 
 
 free(buffer);
