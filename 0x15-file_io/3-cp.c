@@ -88,7 +88,7 @@ do {
 		exit(99);
 	}
 
-	re = read(from, buffer, 1025);
+	re = read(from, buffer, 1024);
 	to = open(argv[2], O_WRONLY | O_APPEND);
 
 } while (re > 0);
