@@ -19,7 +19,7 @@ char *create_buffer(char *file)
 
 	if (buffer == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: cant't write to %s\n", file);
+		dprintf(STDERR_FILENO, "Error: Cam't write to %s\n", file);
 		exit(99);
 	}
 	return (buffer);
@@ -38,7 +38,7 @@ void close_file_content(int fd)
 
 	if (x == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -58,45 +58,45 @@ void close_file_content(int fd)
 
 int main(int argc, char *argv[])
 {
-int from, word, re, to;
-char *buffer;
+	int from, word, re, to;
+	char *buffer;
 
-if (argc != 3)
-{
-	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-	exit(97);
-}
-
-buffer = create_buffer(argv[2]);
-from = open(argv[1], O_RDONLY);
-re = read(from, buffer, 1024);
-to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
-do {
-	if (from == -1 || re == -1)
+	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
-		free(buffer);
-		exit(98);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
 	}
 
-	word = write(to, buffer, re);
-	if (to == -1 || word == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: can't write to %s \n", argv[2]);
-		free(buffer);
-		exit(99);
-	}
-
+	buffer = create_buffer(argv[2]);
+	from = open(argv[1], O_RDONLY);
 	re = read(from, buffer, 1024);
-	to = open(argv[2], O_WRONLY | O_APPEND);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-} while (re > 0);
+	do {
+		if (from == -1 || re == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			free(buffer);
+			exit(98);
+		}
+
+		word = write(to, buffer, re);
+		if (to == -1 || word == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s \n", argv[2]);
+			free(buffer);
+			exit(99);
+		}
+
+		re = read(from, buffer, 1024);
+		to = open(argv[2], O_WRONLY | O_APPEND);
+
+	} while (re > 0);
 
 
-free(buffer);
-close_file_content(from);
-close_file_content(to);
+	free(buffer);
+	close_file_content(from);
+	close_file_content(to);
 
-return (0);
+	return (0);
 }
