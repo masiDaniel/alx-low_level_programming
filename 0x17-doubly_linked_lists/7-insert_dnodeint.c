@@ -2,7 +2,7 @@
 
 /**
  * insert_dnodeint_at_index - insert node at given index
- * @h: pointer to head 
+ * @h: pointer to head
  * @idx: the index to which the node will be added
  * @n: data to insert into the node
  * Return: pointer to new node inserted
@@ -17,11 +17,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (NULL);
 
 	temporary = *h;
-	do
-	{
+	do {
 		length++;
 		temporary = temporary->next;
-	}while (temporary);
+	} while (temporary);
 
 	if (idx == 0)
 		return (add_dnodeint(h, n));
@@ -35,8 +34,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	pointer->n = n;
 
 	temporary = *h;
-	do
-	{
+	do {
 		if (num == idx)
 		{
 			pointer->prev = temporary->prev;
@@ -48,6 +46,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		}
 		num++;
 		temporary = temporary->next;
-	}while (temporary);
+	} while (temporary);
 	return (NULL);
 }
