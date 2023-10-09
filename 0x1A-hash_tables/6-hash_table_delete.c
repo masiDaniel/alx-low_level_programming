@@ -1,4 +1,4 @@
-#include "hash_tales.h"
+#include "hash_tables.h"
 
 /**
 *hash_table_delete - delete a table
@@ -9,7 +9,7 @@
 void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int x;
-	hash_node_t *temorary, *next;
+	hash_node_t *temporary, *next;
 
 	if (!ht)
 		return;
@@ -21,7 +21,7 @@ void hash_table_delete(hash_table_t *ht)
 		{
 			next = temporary->next;
 			free(temporary->key);
-			free(temporary->vlue);
+			free(temporary->value);
 			free(temporary);
 			temporary = next;
 		}

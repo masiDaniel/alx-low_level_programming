@@ -4,7 +4,7 @@
 * hash_table_get - gets a value from a key
 * @ht: table
 * @key: key
-* Return: value if present, NULL if not 
+* Return: value if present, NULL if not
 */
 
 
@@ -18,11 +18,11 @@ if (!key || !ht)
 	return (NULL);
 
 index = key_index((const unsigned char *)key, ht->size);
-temp = ht->array[index];
+temporary = ht->array[index];
 
 while (temporary)
 {
-if (strcmp(temp->key, key) == 0)
+if (strcmp(temporary->key, key) == 0)
 	return (temporary->value);
 
 temporary = temporary->next;
