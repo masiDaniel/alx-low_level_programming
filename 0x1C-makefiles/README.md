@@ -1,1 +1,1 @@
-thi project deals with make files
+thi project deals with make files in c
