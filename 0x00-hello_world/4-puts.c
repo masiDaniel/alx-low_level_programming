@@ -1,11 +1,11 @@
-#include<stdio.h>
+#include <stdio.h>
 /**
-*main- prints out the given statement 
-*Return: 0 (success)
-*/
-
+ *main - main entry point
+ *
+ *Return: Always 0 (success)
+ */
 int main(void)
 {
-puts("\"Programming is like buiding a multilingual puzzle");
-return (0);
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
